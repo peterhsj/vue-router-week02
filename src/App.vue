@@ -10,6 +10,8 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/">Home</RouterLink> |
         <RouterLink to="/about">About</RouterLink> |
         <RouterLink to="/review">複習</RouterLink> |
+        <RouterLink to="/async">非同步</RouterLink> |
+        <RouterLink to="/todo">Todo</RouterLink> |
       </nav>
     </div>
   </header>

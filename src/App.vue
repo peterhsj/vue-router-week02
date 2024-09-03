@@ -1,86 +1,67 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+const tabs = ref([
+  { id: '1', title: 'Home', url: '/'},
+  { id: '2', title: 'Todo', url: '/todo'},
+])
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink> |
-        <RouterLink to="/about">About</RouterLink> |
-        <RouterLink to="/review">複習</RouterLink> |
-        <RouterLink to="/async">非同步</RouterLink> |
-        <RouterLink to="/todo">Todo</RouterLink> |
-      </nav>
-    </div>
-  </header>
 
-  <RouterView />
+  <v-app id="inspire">
+    <v-app-bar
+      class="px-3"
+      density="compact"
+      flat
+    >
+      <v-avatar
+        class="hidden-md-and-up"
+        color="grey-darken-1"
+        size="32"
+      ></v-avatar>
+
+      <v-spacer></v-spacer>
+
+      <v-tabs
+        color="grey-darken-2"
+        centered
+      >
+        <v-tab
+          v-for="tab in tabs"
+          :key="tab.id"
+          :text="tab.title"
+          :to="tab.url"
+        ></v-tab>
+      </v-tabs>
+      <v-spacer></v-spacer>
+
+      <v-avatar
+        class="hidden-sm-and-down"
+        color="grey-darken-1"
+        size="32"
+      ></v-avatar>
+    </v-app-bar>
+
+    <v-main class="bg-grey-lighten-3">
+      <v-container>
+        <v-row>
+          <v-col
+            cols="12"
+            lg="8"
+            offset-lg="2"
+          >
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+              class="pa-5"
+            >
+              <RouterView />
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>  
 </template>
-
-<style scoped>
-/*
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-  */
-</style>

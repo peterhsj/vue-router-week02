@@ -269,6 +269,7 @@ const signup = async () => {
   try {
     const res = await axios.post(`${api}/users/sign_up`, setupField.value);
     uid.value = res.data.uid;
+    isRegister.value = false;
     cleanMessage();
   } catch (err) {
     errMessage.value = `${err.response.data.message}`;

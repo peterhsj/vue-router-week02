@@ -1,0 +1,1 @@
+import{a as e}from"./axios-BimPEqV4.js";import{c as t,o as n}from"./index-CE3ggQXN.js";const l={__name:"AsyncView",setup(a){return console.log(e),e.get("https://randomuser.me/api/").then(o=>(console.log({response:o}),o.data)),(o,c)=>(n(),t("h1",null,"Async Function"))}};export{l as default};
